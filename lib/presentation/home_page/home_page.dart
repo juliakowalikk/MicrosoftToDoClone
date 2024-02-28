@@ -7,17 +7,18 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-          body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('lib/images/background.jpg'),
-                fit: BoxFit.cover,
+        body: Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('lib/images/background.jpg'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          const HomePageBody(),
-        ],
-      ));
+            const HomePageBody(),
+          ],
+        ),
+      );
 }
