@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:microsoft_to_do/presentation/home_page/widgets/home_page_list_view.dart';
 import 'package:microsoft_to_do/presentation/home_page/widgets/home_page_modal_bottom_sheet.dart';
 import 'package:microsoft_to_do/style/app_typography.dart';
 
@@ -17,34 +18,6 @@ class _HomePageBodyState extends State<HomePageBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_back_ios_sharp,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                ),
-                Text('Lists', style: AppTypography.style3),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.lightbulb_outline,
-                    color: Colors.white,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.more_horiz_outlined,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
             Padding(
               padding: const EdgeInsets.only(left: 8),
               child: Text('My Day', style: AppTypography.style1),
@@ -53,6 +26,7 @@ class _HomePageBodyState extends State<HomePageBody> {
               padding: const EdgeInsets.only(left: 8),
               child: Text(date, style: AppTypography.style2),
             ),
+            const HomePageListView(),
             const Spacer(),
             GestureDetector(
               onTap: () => showModalBottomSheet(

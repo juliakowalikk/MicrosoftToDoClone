@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:microsoft_to_do/cubit/task_cubit.dart';
 import 'package:microsoft_to_do/presentation/home_page/widgets/task_details_modal_bottom_sheet.dart';
+import 'package:microsoft_to_do/task.dart';
 
 class ModalBottomSheet extends StatefulWidget {
   const ModalBottomSheet({super.key});
@@ -9,18 +12,18 @@ class ModalBottomSheet extends StatefulWidget {
 }
 
 class _ModalBottomSheetState extends State<ModalBottomSheet> {
-  late TextEditingController _taskController;
+  late TextEditingController taskController;
   bool isChecked = false;
 
   @override
   void initState() {
     super.initState();
-    _taskController = TextEditingController();
+    taskController = TextEditingController();
   }
 
   @override
   void dispose() {
-    _taskController.dispose();
+    taskController.dispose();
     super.dispose();
   }
 
@@ -47,7 +50,13 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
                       child: SizedBox(
                         width: 100,
                         child: TextField(
-                          controller: _taskController,
+                          onSubmitted: (controllerText) {
+                            context
+                                .read<TaskCubit>()
+                                .addTask(Task(input: controllerText));
+                            taskController.clear();
+                          },
+                          controller: taskController,
                           decoration: const InputDecoration(
                             hintText: 'Add a Task',
                             border: InputBorder.none,
