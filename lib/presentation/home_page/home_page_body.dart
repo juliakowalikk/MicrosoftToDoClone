@@ -32,24 +32,27 @@ class _HomePageBodyState extends State<HomePageBody> {
               onTap: () => showModalBottomSheet(
                   context: context,
                   builder: (BuildContext context) => const ModalBottomSheet()),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xFF7B6D68),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        'Add a Task',
-                        style: AppTypography.style3,
-                      ),
-                    ],
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF7B6D68),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'Add a Task',
+                          style: AppTypography.style3,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
