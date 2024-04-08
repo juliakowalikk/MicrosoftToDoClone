@@ -12,16 +12,18 @@ class TaskCubit extends Cubit<TaskState> {
 
   void addTask(Task task) {
     tasks.add(task);
-    print('task do zrobienia: $tasks');
     emit(TaskState.loaded(List.from(tasks), List.from(deletedTasks)));
   }
 
   void removeTask(Task task) {
     deletedTasks.add(task);
-    print(' lista usunietych taskow: $deletedTasks');
     tasks.remove(task);
-    print('lista taskow do zrobienia: $tasks');
+    emit(TaskState.loaded(List.from(tasks), List.from(deletedTasks)));
+  }
 
+  void removeTaskFromCompleted(Task task) {
+    deletedTasks.remove(task);
+    tasks.add(task);
     emit(TaskState.loaded(List.from(tasks), List.from(deletedTasks)));
   }
 }
